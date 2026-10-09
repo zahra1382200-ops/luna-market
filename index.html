@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>لونا مارکت | Luna Market</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Tahoma, Arial, sans-serif;
+            background-color: #0b0b0b;
+            color: #f5f5f5;
+            line-height: 1.9;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        /* نوار بالای سایت */
+        header {
+            background-color: #111111;
+            border-bottom: 1px solid #b99a4b;
+            padding: 15px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .logo {
+            color: #d4af5a;
+            font-size: 25px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        nav {
+            display: flex;
+            gap: 22px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: #ffffff;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #d4af5a;
+        }
+
+        /* بخش معرفی */
+        .hero {
+            min-height: 400px;
+            padding: 75px 20px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background:
+                radial-gradient(
+                    circle at center,
+                    #292215 0%,
+                    #111111 45%,
+                    #080808 100%
+                );
+        }
+
+        .moon {
+            color: #d4af5a;
+            font-size: 45px;
+            margin-bottom: 10px;
+        }
+
+        .hero h1 {
+            color: #d4af5a;
+            font-size: 34px;
+            margin-bottom: 12px;
+        }
+
+        .hero p {
+            color: #dddddd;
+            font-size: 16px;
+            margin-bottom: 25px;
+        }
+
+        .gold-button {
+            display: inline-block;
+            background-color: #d4af5a;
+            color: #111111;
+            padding: 10px 28px;
+            border-radius: 7px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .gold-button:hover {
+            background-color: #f0d58a;
+            transform: translateY(-2px);
+        }
+
+        /* عنوان بخش محصولات */
+        .section-title {
+            text-align: center;
+            padding: 45px 15px 25px;
+        }
+
+        .section-title h2 {
+            color: #d4af5a;
+            font-size: 27px;
+            margin-bottom: 8px;
+        }
+
+        .section-title p {
+            color: #aaaaaa;
+            font-size: 14px;
+        }
+
+        /* کارت‌های محصولات */
+        .products {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 25px;
+            padding: 15px 7% 60px;
+            max-width: 1250px;
+            margin: auto;
+        }
+
+        .product {
+            background-color: #151515;
+            border: 1px solid #34302a;
+            border-radius: 12px;
+            overflow: hidden;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .product:hover {
+            border-color: #d4af5a;
+            transform: translateY(-5px);
+        }
+
+        .product img {
+            width: 100%;
+            height: 230px;
+            object-fit: cover;
+            display: block;
+            background-color: #222222;
+        }
+
+        .product-info {
+            padding: 18px 15px 22px;
+        }
+
+        .product h3 {
+            color: #e1c477;
+            font-size: 19px;
+            margin-bottom: 8px;
+        }
+
+        .product p {
+            color: #c4c4c4;
+            font-size: 13px;
+            margin-bottom: 12px;
+        }
+
+        .price {
+            color: #d4af5a;
+            font-size: 19px;
+            font-weight: bold;
+            margin-bottom: 16px;
+        }
+
+        .order-button {
+            display: inline-block;
+            width: 100%;
+            background-color: #d4af5a;
+            color: #111111;
+            padding: 10px;
+            border-radius: 7px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .order-button:hover {
+            background-color: #f0d58a;
+        }
+
+        /* درباره لونا مارکت */
+        .about {
+            margin: 0 7% 50px;
+            padding: 35px 25px;
+            text-align: center;
+            background-color: #141414;
+            border: 1px solid #34302a;
+            border-radius: 12px;
+        }
+
+        .about h2 {
+            color: #d4af5a;
+            margin-bottom: 12px;
+        }
+
+        .about p {
+            color: #cccccc;
+            font-size: 14px;
+        }
+
+        /* راه‌های ارتباطی */
+        .contact {
+            background-color: #111111;
+            border-top: 1px solid #b99a4b;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .contact h2 {
+            color: #d4af5a;
+            margin-bottom: 12px;
+        }
+
+        .contact p {
+            color: #cccccc;
+            margin-bottom: 18px;
+        }
+
+        .contact a {
+            color: #d4af5a;
+        }
+
+        footer {
+            background-color: #080808;
+            text-align: center;
+            padding: 15px;
+            color: #888888;
+            font-size: 12px;
+        }
+
+        /* نمایش مناسب در گوشی */
+        @media (max-width: 800px) {
+            .products {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                padding-right: 5%;
+                padding-left: 5%;
+                gap: 15px;
+            }
+
+            .product img {
+                height: 190px;
+            }
+
+            .hero h1 {
+                font-size: 28px;
+            }
+
+            header {
+                justify-content: center;
+                text-align: center;
+            }
+
+            nav {
+                justify-content: center;
+                gap: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .products {
+                grid-template-columns: 1fr;
+                max-width: 340px;
+            }
+
+            .product img {
+                height: 250px;
+            }
+
+            .hero {
+                min-height: 340px;
+                padding: 55px 18px;
+            }
+
+            .hero h1 {
+                font-size: 25px;
+            }
+
+            .section-title h2 {
+                font-size: 23px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- سربرگ سایت -->
+    <header>
+        <div class="logo">LUNA MARKET ✦</div>
+
+        <nav>
+            <a href="#home">صفحه اصلی</a>
+            <a href="#products">محصولات</a>
+            <a href="#about">درباره ما</a>
+            <a href="#contact">تماس با ما</a>
+        </nav>
+    </header>
+
+    <!-- معرفی فروشگاه -->
+    <section class="hero" id="home">
+        <div class="moon">☾</div>
+
+        <h1>به دنیای لونا مارکت خوش آمدید</h1>
+
+        <p>
+            زیبایی در جزئیات است؛ انتخابی خاص برای سلیقه‌ای خاص
+        </p>
+
+        <a href="#products" class="gold-button">
+            مشاهده محصولات
+        </a>
+    </section>
+
+    <!-- محصولات -->
+    <section id="products">
+        <div class="section-title">
+            <h2>محصولات لونا مارکت</h2>
+            <p>خاص انتخاب کن، متفاوت بدرخش</p>
+        </div>
+
+        <div class="products">
+
+            <!-- محصول اول -->
+            <div class="product">
+                <img
+                    src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600"
+                    alt="ساعت شیک"
+                >
+
+                <div class="product-info">
+                    <h3>ساعت شیک و خاص</h3>
+
+                    <p>
+                        انتخابی جذاب برای استایل روزمره و رسمی
+                    </p>
+
+                    <div class="price">
+                        ۲,۰۰۰,۰۰۰ تومان
+                    </div>
+
+                    <a
+                        class="order-button"
+                        href="https://wa.me/989203028089?text=%D8%B3%D9%84%D8%A7%D9%85%D8%8C%20%D8%A8%D8%B1%D8%A7%DB%8C%20%D8%AE%D8%B1%DB%8C%D8%AF%20%D8%B3%D8%A7%D8%B9%D8%AA%20%D8%B4%DB%8C%DA%A9%20%D9%BE%DB%8C%D8%A7%D9%85%20%D8%AF%D8%A7%D8%AF%D9%85."
+                        target="_blank"
+                    >
+                        سفارش از واتساپ
+                    </a>
+                </div>
+            </div>
+
+            <!-- محصول دوم -->
+            <div class="product">
+                <img
+                    src="https://images.unsplash.com/photo-1506630448388-4e683c67ddb0?w=600"
+                    alt="اکسسوری زنانه"
+                >
+
+                <div class="product-info">
+                    <h3>اکسسوری خاص</h3>
+
+                    <p>
+                        جزئیات ظریف برای کامل کردن استایل شما
+                    </p>
+
+                    <div class="price">
+                        ۱,۲۰۰,۰۰۰ تومان
+                    </div>
+
+                    <a
+                        class="order-button"
+                        href="https://wa.me/989203028089?text=%D8%B3%D9%84%D8%A7%D9%85%D8%8C%20%D8%A8%D8%B1%D8%A7%DB%8C%20%D8%AE%D8%B1%DB%8C%D8%AF%20%D8%A7%DA%A9%D8%B3%D8%B3%D9%88%D8%B1%DB%8C%20%D8%AE%D8%A7%D8%B5%20%D9%BE%DB%8C%D8%A7%D9%85%20%D8%AF%D8%A7%D8%AF%D9%85."
+                        target="_blank"
+                    >
+                        سفارش از واتساپ
+                    </a>
+                </div>
+            </div>
+
+            <!-- محصول سوم -->
+            <div class="product">
+                <img
+                    src="https://images.unsplash.com/photo-1611652022419-a9419f74343d?w=600"
+                    alt="زیورآلات زنانه"
+                >
+
+                <div class="product-info">
+                    <h3>زیورآلات ظریف</h3>
+
+                    <p>
+                        زیبایی ساده و چشم‌نواز برای لحظه‌های خاص
+                    </p>
+
+                    <div class="price">
+                        استعلام قیمت
+                    </div>
+
+                    <a
+                        class="order-button"
+                        href="https://wa.me/989203028089?text=%D8%B3%D9%84%D8%A7%D9%85%D8%8C%20%D9%82%DB%8C%D9%85%D8%AA%20%D8%B2%DB%8C%D9%88%D8%B1%D8%A2%D9%84%D8%A7%D8%AA%20%D8%B1%D8%A7%20%D9%85%DB%8C%E2%80%8C%D9%81%D8%B1%D9%85%D8%A7%DB%8C%DB%8C%D8%AF%D8%9F"
+                        target="_blank"
+                    >
+                        استعلام و سفارش
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- درباره فروشگاه -->
+    <section class="about" id="about">
+        <h2>درباره لونا مارکت</h2>
+
+        <p>
+            لونا مارکت با هدف ارائه محصولاتی زیبا، خاص و جذاب
+            برای افرادی با سلیقه متفاوت ایجاد شده است.
+            ما تلاش می‌کنیم تجربه‌ای ساده و دلنشین از انتخاب
+            و خرید برای شما فراهم کنیم.
+        </p>
+    </section>
+
+    <!-- تماس با ما -->
+    <section class="contact" id="contact">
+        <h2>با ما در ارتباط باشید</h2>
+
+        <p>
+            برای اطلاع از موجودی، قیمت روز و ثبت سفارش
+            با ما تماس بگیرید.
+        </p>
+
+        <a
+            class="gold-button"
+            href="https://wa.me/989203028089"
+            target="_blank"
+        >
+            ارتباط در واتساپ
+        </a>
+    </section>
+
+    <!-- پایین سایت -->
+    <footer>
+        © Luna Market | تمامی حقوق محفوظ است
+    </footer>
+
+</body>
+                                     </html>
